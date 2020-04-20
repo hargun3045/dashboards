@@ -1,23 +1,12 @@
 {# D, table, newcases, np, pd  #}
-
 {% set COL_REGION = COL_REGION or 'Country/Region' %}
-
 {% set KPI_CASE = KPI_CASE or 'World' %}
-
-<!-- {% set KPI_CASE = 'World' %} -->
-
 {% set KPIS_INFO = KPIS_INFO or [{'title': 'China', 'prefix': 'China'}, {'title': 'Europe', 'prefix': 'EU'}, {'title': 'U.S.', 'prefix': 'US'}] %}
-
 {% set LEGEND_DOMAIN = LEGEND_DOMAIN or [10, 100, 1000, np.inf] %}
-
 {% set WIDTH_REGION, WIDTH_STRIP = 120, 140 %}
-
 {% set STRIP_WIDTH = (WIDTH_REGION // newcases.shape[1] + 1) %}
-
 {% set LEGEND_RANGE = ['rgba(255, 152, 0, 0.1)', 'rgba(255, 152, 0, 0.4)', 'rgba(255, 152, 0, 0.7)', 'rgba(255, 152, 0, 1)'] %}
-
 {% set TOPLINKS = TOPLINKS or [
-
   {'title': 'World', 'href': '../covid-overview/'}, {'title': 'US', 'href': '../covid-overview-us/'},
   {'title': 'Europe', 'href': '../covid-overview-europe/'}] %}
 {% set lastdays = (D['updated'] - D['since']).days %}
@@ -49,11 +38,9 @@
 {% macro narrative() -%}
 {% if KPI_CASE == 'World' %}
   In the last <b>{{ lastdays }} days</b>, <b class="color-neg">{{ '{0:,.0f}'.format(D['Cases (+)']) }}</b> new Coronavirus cases have been reported worldwide.
-  Of which <b class="color-neg">{{ '{0:,.0f}'.format(D['EU Cases (+)']) }}</b> ({{ "{0:.0%}".format(D['US Cases (+)'] / D['Cases (+)']) }}) are from <b>United States</b>.
-  <b>India</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['India Cases (+)']) }}</b> new cases and <b class="color-neg">{{ '{0:,.0f}'.format(D['India Deaths (+)']) }}</b>in the last {{ lastdays }} days.
-
-
-  {% elif KPI_CASE == 'US' %}
+  Of which <b class="color-neg">{{ '{0:,.0f}'.format(D['EU Cases (+)']) }}</b> ({{ "{0:.0%}".format(D['EU Cases (+)'] / D['Cases (+)']) }}) are from <b>Europe</b>.
+  <b>China</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['China Cases (+)']) }}</b> new cases in the last {{ lastdays }} days.
+{% elif KPI_CASE == 'US' %}
   In the last <b>{{ lastdays }} days</b>, <b class="color-neg">{{ '{0:,.0f}'.format(D['Cases (+)']) }}</b> new Coronavirus cases have been reported in the US.
   Of which <b class="color-neg">{{ '{0:,.0f}'.format(D['NY Cases (+)']) }}</b> ({{ "{0:.0%}".format(D['NY Cases (+)'] / D['Cases (+)']) }}) are from <b>New York</b> State.
   <b>Washington</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['WA Cases (+)']) }}</b> new cases in the last {{ lastdays }} days.
@@ -67,12 +54,8 @@
   <b>India</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['IN Cases (+)']) }}</b> new cases in the last {{ lastdays }} days.
 {% else %}
   ''
-
-
 {% endif %}
 {%- endmacro %}
-
-
 
 {% macro plotstrip(arr) -%}
   <div class="d-flex" style="height:15px;">
@@ -82,8 +65,6 @@
     {% endfor %}
   </div>
 {%- endmacro %}
-
-
 
 {% macro legend() -%}
 <svg width="100" height="20" viewBox="0,0,100,20" style="overflow: visible; display: block;">
@@ -99,8 +80,6 @@
     </g>
 </svg>
 {%- endmacro %}
-
-
 
 <div class="overview">
   {{ toplinks() }}
@@ -159,16 +138,6 @@
     </tbody>
   </table>
 </div>
-
-
-
-
-
-<!-- Screw the style for now -->
-
-
-
-
 <style>
 .overview {
   min-width: 500px;
