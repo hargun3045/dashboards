@@ -2,9 +2,9 @@
 
 {% set COL_REGION = COL_REGION or 'Country/Region' %}
 
-<!-- {% set KPI_CASE = KPI_CASE or 'World' %} -->
+{% set KPI_CASE = KPI_CASE or 'World' %}
 
-{% set KPI_CASE = 'World' %}
+<!-- {% set KPI_CASE = 'World' %} -->
 
 {% set KPIS_INFO = KPIS_INFO or [{'title': 'China', 'prefix': 'China'}, {'title': 'Europe', 'prefix': 'EU'}, {'title': 'U.S.', 'prefix': 'US'}] %}
 
@@ -53,7 +53,7 @@
   <b>India</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['India Cases (+)']) }}</b> new cases and <b class="color-neg">{{ '{0:,.0f}'.format(D['India Deaths (+)']) }}</b>in the last {{ lastdays }} days.
 
 
-  <!-- {% elif KPI_CASE == 'US' %}
+  {% elif KPI_CASE == 'US' %}
   In the last <b>{{ lastdays }} days</b>, <b class="color-neg">{{ '{0:,.0f}'.format(D['Cases (+)']) }}</b> new Coronavirus cases have been reported in the US.
   Of which <b class="color-neg">{{ '{0:,.0f}'.format(D['NY Cases (+)']) }}</b> ({{ "{0:.0%}".format(D['NY Cases (+)'] / D['Cases (+)']) }}) are from <b>New York</b> State.
   <b>Washington</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['WA Cases (+)']) }}</b> new cases in the last {{ lastdays }} days.
@@ -66,9 +66,9 @@
   Of which <b class="color-neg">{{ '{0:,.0f}'.format(D['CN Cases (+)']) }}</b> ({{ "{0:.0%}".format(D['CN Cases (+)'] / D['Cases (+)']) }}) are from <b>China</b>.
   <b>India</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['IN Cases (+)']) }}</b> new cases in the last {{ lastdays }} days.
 {% else %}
-  '' -->
+  ''
 
-  
+
 {% endif %}
 {%- endmacro %}
 
