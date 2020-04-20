@@ -1,19 +1,14 @@
 {# D, table, newcases, np, pd  #}
 {% set COL_REGION = COL_REGION or 'Country/Region' %}
 {% set KPI_CASE = KPI_CASE or 'World' %}
-{% set KPIS_INFO = KPIS_INFO or [{'title': 'India', 'prefix': 'India'}, {'title': 'United States', 'prefix': 'US'}, {'title': 'Europe', 'prefix': 'EU'}] %}
+{% set KPIS_INFO = KPIS_INFO or [{'title': 'China', 'prefix': 'China'}, {'title': 'Europe', 'prefix': 'EU'}, {'title': 'U.S.', 'prefix': 'US'}] %}
 {% set LEGEND_DOMAIN = LEGEND_DOMAIN or [10, 100, 1000, np.inf] %}
-{% set WIDTH_REGION, WIDTH_STRIP = 100, 120 %}
+{% set WIDTH_REGION, WIDTH_STRIP = 120, 140 %}
 {% set STRIP_WIDTH = (WIDTH_REGION // newcases.shape[1] + 1) %}
-
-{% set LEGEND_RANGE = ['rgba(254, 26, 5, 0.1)', 'rgba(254, 26, 5, 0.4)', 'rgba(254, 26, 5, 0.7)', 'rgba(254, 26, 5, 1)'] %}
-
-
+{% set LEGEND_RANGE = ['rgba(255, 152, 0, 0.1)', 'rgba(255, 152, 0, 0.4)', 'rgba(255, 152, 0, 0.7)', 'rgba(255, 152, 0, 1)'] %}
 {% set TOPLINKS = TOPLINKS or [
   {'title': 'World', 'href': '../covid-overview/'}, {'title': 'US', 'href': '../covid-overview-us/'},
   {'title': 'Europe', 'href': '../covid-overview-europe/'}] %}
-
-
 {% set lastdays = (D['updated'] - D['since']).days %}
 
 {% macro kpi(name, number, growth, growcls='') -%}
@@ -34,29 +29,29 @@
   </div>
 {%- endmacro %}
 
-{% macro toplinks() -%}
+<!-- {% macro toplinks() -%}
 <div class="text-center toplinksgithub">
   {% for link in TOPLINKS %}<a href="{{ link['href'] }}">{{ link['title'] }}</a>{% endfor %}
 </div>
-{%- endmacro %}
+{%- endmacro %} -->
 
 {% macro narrative() -%}
 {% if KPI_CASE == 'World' %}
-  In the past <b>24 hours </b>, <b class="color-neg">{{ '{0:,.0f}'.format(D['Cases (+)']) }}</b> new Coronavirus cases have been reported worldwide.
+  In the last <b>{{ lastdays }} days</b>, <b class="color-neg">{{ '{0:,.0f}'.format(D['Cases (+)']) }}</b> new Coronavirus cases have been reported worldwide.
   Of which <b class="color-neg">{{ '{0:,.0f}'.format(D['US Cases (+)']) }}</b> ({{ "{0:.0%}".format(D['US Cases (+)'] / D['Cases (+)']) }}) are from <b>United States</b>.
-  <b>India</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['India Cases (+)']) }}</b> new cases and <b class="color-neg">{{ '{0:,.0f}'.format(D['India Deaths (+)']) }}</b> deaths. 
+  <b>India</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['India Cases (+)']) }}</b> new cases in the last {{ lastdays }} days.
 {% elif KPI_CASE == 'US' %}
   In the last <b>{{ lastdays }} days</b>, <b class="color-neg">{{ '{0:,.0f}'.format(D['Cases (+)']) }}</b> new Coronavirus cases have been reported in the US.
   Of which <b class="color-neg">{{ '{0:,.0f}'.format(D['NY Cases (+)']) }}</b> ({{ "{0:.0%}".format(D['NY Cases (+)'] / D['Cases (+)']) }}) are from <b>New York</b> State.
-  <b>Washington</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['WA Cases (+)']) }}</b> new cases in the last {{ lastdays }} day.
+  <b>Washington</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['WA Cases (+)']) }}</b> new cases in the last {{ lastdays }} days.
 {% elif KPI_CASE == 'Europe' %}
   In the last <b>{{ lastdays }} days</b>, <b class="color-neg">{{ '{0:,.0f}'.format(D['Cases (+)']) }}</b> new Coronavirus cases have been reported in the Europe.
   Of which <b class="color-neg">{{ '{0:,.0f}'.format(D['IT Cases (+)']) }}</b> ({{ "{0:.0%}".format(D['IT Cases (+)'] / D['Cases (+)']) }}) are from <b>Italy</b>.
-  <b>Spain</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['SP Cases (+)']) }}</b> new cases in the last {{ lastdays }} day.
+  <b>Spain</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['SP Cases (+)']) }}</b> new cases in the last {{ lastdays }} days.
 {% elif KPI_CASE == 'Asia' %}
   In the last <b>{{ lastdays }} days</b>, <b class="color-neg">{{ '{0:,.0f}'.format(D['Cases (+)']) }}</b> new Coronavirus cases have been reported in Asia.
   Of which <b class="color-neg">{{ '{0:,.0f}'.format(D['CN Cases (+)']) }}</b> ({{ "{0:.0%}".format(D['CN Cases (+)'] / D['Cases (+)']) }}) are from <b>China</b>.
-  <b>India</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['IN Cases (+)']) }}</b> new cases in the last {{ lastdays }} day.
+  <b>India</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['IN Cases (+)']) }}</b> new cases in the last {{ lastdays }} days.
 {% else %}
   ''
 {% endif %}
@@ -95,7 +90,7 @@
       {{ kpi(name='Deaths', number=D['Deaths'], growth=D['Deaths (+)']) }}
     </div>
   </div>
-  <p class="text-center text-uppercase fs9">Updated on <b>{{ D['updated'].strftime('%B %d, %Y') }}</b> ( +change since yesterday)</p>
+  <p class="text-center text-uppercase fs9">Updated on <b>{{ D['updated'].strftime('%B %d, %Y') }}</b> ( +change since {{ lastdays }} days ago.)</p>
   <div class="d-flex" style="justify-content:space-between;">
     {% for kpi in KPIS_INFO %}
     {{ kpiblocksm(**kpi) }}
@@ -148,7 +143,7 @@
 
 .overview {
   min-width: 500px;
-  font-size: 9px;
+  font-size: 10px;
   font-family: "Segoe UI", SegoeUI, Roboto, "Segoe WP", "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif !important;
 }
 .overview .toplinksgithub a {
@@ -174,8 +169,7 @@
 }
 .overview .kpi-box {
   justify-content: space-around;
-  font-size: 15px;
-  background: #f5d906;
+  background: #ececec;
   padding: 10px 0 !important;
   margin: 5px 0 !important;
   min-width: 180px;
@@ -193,14 +187,14 @@
   color: #118822;
 }
 .overview .table .change.neg, .overview .kpi .grow, .color-neg {
-  color: #fe1a05;
+  color: #cc1100;
 }
 .overview p .color-neg {
   background: #ececec;
   padding: 0 5px;
 }
 .overview .kpi .kname {
-  font-size: 10px;
+  font-size: 12px;
 }
 .overview .kpi-sm .kpi-hed {
   font-size: 14px;
@@ -213,7 +207,7 @@
 }
 .overview .kpi-sm .kname {
   font-size: 11px;
-  line-height: 9px;
+  line-height: 10px;
 }
 .overview .table {
   border-collapse: collapse;
@@ -253,7 +247,7 @@
   border-bottom: 1px solid black;
 }
 .overview .fs9 {
-  font-size: 12px;
+  font-size: 9px;
 }
 .overview .d-flex {
   display: flex;
