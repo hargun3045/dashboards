@@ -45,18 +45,14 @@
   In the past <b>24 hours </b>, <b class="color-neg">{{ '{0:,.0f}'.format(D['Cases (+)']) }}</b> new Coronavirus cases have been reported worldwide.
   Of which <b class="color-neg">{{ '{0:,.0f}'.format(D['US Cases (+)']) }}</b> ({{ "{0:.0%}".format(D['US Cases (+)'] / D['Cases (+)']) }}) are from <b>United States</b>.
   <b>India</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['India Cases (+)']) }}</b> new cases and <b class="color-neg">{{ '{0:,.0f}'.format(D['India Deaths (+)']) }}</b> deaths. 
-{% elif KPI_CASE == 'US' %}
-  In the last <b>{{ lastdays }} days</b>, <b class="color-neg">{{ '{0:,.0f}'.format(D['Cases (+)']) }}</b> new Coronavirus cases have been reported in the US.
-  Of which <b class="color-neg">{{ '{0:,.0f}'.format(D['NY Cases (+)']) }}</b> ({{ "{0:.0%}".format(D['NY Cases (+)'] / D['Cases (+)']) }}) are from <b>New York</b> State.
-  <b>Washington</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['WA Cases (+)']) }}</b> new cases in the last {{ lastdays }} day.
-{% elif KPI_CASE == 'Europe' %}
-  In the last <b>{{ lastdays }} days</b>, <b class="color-neg">{{ '{0:,.0f}'.format(D['Cases (+)']) }}</b> new Coronavirus cases have been reported in the Europe.
-  Of which <b class="color-neg">{{ '{0:,.0f}'.format(D['IT Cases (+)']) }}</b> ({{ "{0:.0%}".format(D['IT Cases (+)'] / D['Cases (+)']) }}) are from <b>Italy</b>.
-  <b>Spain</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['SP Cases (+)']) }}</b> new cases in the last {{ lastdays }} day.
+{% elif KPI_CASE == 'India' %}
+  In the last <b>24 hours</b>, <b class="color-neg">{{ '{0:,.0f}'.format(D['Cases (+)']) }}</b> new Coronavirus cases have been reported in India.
+  Of which <b class="color-neg">{{ '{0:,.0f}'.format(D['MH Cases (+)']) }}</b> ({{ "{0:.0%}".format(D['MH Cases (+)'] / D['Cases (+)']) }}) are from <b>Maharashtra</b> State.
+  
 {% elif KPI_CASE == 'Asia' %}
-  In the last <b>{{ lastdays }} days</b>, <b class="color-neg">{{ '{0:,.0f}'.format(D['Cases (+)']) }}</b> new Coronavirus cases have been reported in Asia.
-  Of which <b class="color-neg">{{ '{0:,.0f}'.format(D['CN Cases (+)']) }}</b> ({{ "{0:.0%}".format(D['CN Cases (+)'] / D['Cases (+)']) }}) are from <b>China</b>.
-  <b>India</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['IN Cases (+)']) }}</b> new cases in the last {{ lastdays }} day.
+  In the last <b>24 hours </b>, <b class="color-neg">{{ '{0:,.0f}'.format(D['Cases (+)']) }}</b> new Coronavirus cases have been reported in Asia.
+  Of which <b class="color-neg">{{ '{0:,.0f}'.format(D['Turkey Cases (+)']) }}</b> ({{ "{0:.0%}".format(D['Turkey Cases (+)'] / D['Cases (+)']) }}) are from <b>Turkey</b>.
+  <b>India</b> has reported <b class="color-neg">{{ '{0:,.0f}'.format(D['India Cases (+)']) }}</b> new cases and <b class="color-neg">{{ '{0:,.0f}'.format(D['India Deaths (+)']) }}</b> deaths. 
 {% else %}
   ''
 {% endif %}
