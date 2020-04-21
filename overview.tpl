@@ -10,8 +10,8 @@
 
 
 {% set TOPLINKS = TOPLINKS or [
-  {'title': 'World', 'href': '../covid-overview/'}, {'title': 'US', 'href': '../covid-overview-us/'},
-  {'title': 'Europe', 'href': '../covid-overview-europe/'}] %}
+  {'title': 'World', 'href': '../covid-overview/'}, {'title': 'Asia', 'href': '../covid-overview-asia/'},
+  {'title': 'India', 'href': '../covid-overview-linde/'}] %}
 
 
 {% set lastdays = (D['updated'] - D['since']).days %}
