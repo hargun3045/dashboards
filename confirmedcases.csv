@@ -1,34 +1,34 @@
-states,2020-04-20,2020-04-21,2020-04-22
-Andaman and Nicobar Islands,15,16,16.0
-Andhra Pradesh,722,757,757.0
-Arunachal Pradesh,1,1,1.0
-Assam,35,35,35.0
-Bihar,96,114,126.0
-Chandigarh,26,26,27.0
-Chhattisgarh,36,36,36.0
-Delhi,2003,2081,2156.0
-Goa,7,7,7.0
-Gujarat,1851,2066,2178.0
-Haryana,233,254,254.0
-Himachal Pradesh,39,39,39.0
-Jammu and Kashmir,350,368,380.0
-Jharkhand,42,46,45.0
-Karnataka,395,415,418.0
-Kerala,402,408,427.0
-Ladakh,18,18,18.0
-Madhya Pradesh,1485,1540,1552.0
-Maharashtra,4203,4669,5218.0
-Manipur,2,2,2.0
-Meghalaya,11,11,12.0
-Mizoram,1,1,1.0
-Nagaland,0,0,79.0
-Odisha,68,74,7.0
-Puducherry,7,7,245.0
-Punjab,219,245,1659.0
-Rajasthan,1478,1576,1596.0
-Tamil Nadu,1477,1520,928.0
-Telengana,873,919,2.0
-Tripura,2,2,46.0
-Uttarakhand,44,46,1294.0
-Uttar Pradesh,1176,1294,423.0
-West Bengal,339,392,
+states,2020-04-20,2020-04-21,2020-04-22,2020-04-25
+Andaman and Nicobar Islands,15,16,16.0,27.0
+Andhra Pradesh,722,757,757.0,955.0
+Arunachal Pradesh,1,1,1.0,1.0
+Assam,35,35,35.0,36.0
+Bihar,96,114,126.0,223.0
+Chandigarh,26,26,27.0,27.0
+Chhattisgarh,36,36,36.0,36.0
+Delhi,2003,2081,2156.0,2514.0
+Goa,7,7,7.0,7.0
+Gujarat,1851,2066,2178.0,2815.0
+Haryana,233,254,254.0,272.0
+Himachal Pradesh,39,39,39.0,40.0
+Jammu and Kashmir,350,368,380.0,454.0
+Jharkhand,42,46,45.0,57.0
+Karnataka,395,415,418.0,474.0
+Kerala,402,408,427.0,450.0
+Ladakh,18,18,18.0,20.0
+Madhya Pradesh,1485,1540,1552.0,1852.0
+Maharashtra,4203,4669,5218.0,6817.0
+Manipur,2,2,2.0,2.0
+Meghalaya,11,11,12.0,12.0
+Mizoram,1,1,1.0,1.0
+Nagaland,0,0,79.0,94.0
+Odisha,68,74,7.0,7.0
+Puducherry,7,7,245.0,298.0
+Punjab,219,245,1659.0,2034.0
+Rajasthan,1478,1576,1596.0,1755.0
+Tamil Nadu,1477,1520,928.0,984.0
+Telengana,873,919,2.0,2.0
+Tripura,2,2,46.0,48.0
+Uttarakhand,44,46,1294.0,1621.0
+Uttar Pradesh,1176,1294,423.0,571.0
+West Bengal,339,392,,
